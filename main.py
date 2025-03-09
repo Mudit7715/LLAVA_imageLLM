@@ -28,7 +28,7 @@ quantization_config = BitsAndBytesConfig(
 )
 
 # Hugging Face authentication
-hf_token = "enter your huggingface token"
+hf_token = "enter your huggingface token here"
 login(token=hf_token)
 
 # Initialize models
@@ -132,57 +132,9 @@ def process_inputs(audio_path, image_path):
     else:
         chatgpt_output = "No image provided."
 
-    # script_dir = "C:/Users/gupta/OneDrive/Desktop/LLMS/RCG global/individual agents"
-
-    # Generate output audio file with timestamp
-    # timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    # output_audio = os.path.join(audio_dir, f"output_{timestamp}.mp3")
-
-    # audio_dir = os.path.join(script_dir, "audio")
     processed_audio_path = text_to_speech(chatgpt_output, "Temp3.mp3")
 
     return speech_to_text_output, chatgpt_output, processed_audio_path
-
-# Main function
-if __name__ == "__main__":
-    # Set up paths relative to script location
-    # script_dir = os.path.dirname("C:/Users/gupta/OneDrive/Desktop/LLMS/RCG global/individual agents")
-    audio_path =  "C:/Users/gupta/OneDrive/Desktop/LLMS/RCG global/individual agents/real.mp3"
-    image_path = "C:/Users/gupta/OneDrive/Desktop/LLMS/RCG global/individual agents/pexels-souvenirpixels-414612.jpg"
-    
-    print("\n=== File Path Information ===")
-    # print(f"Script directory: {script_dir}")
-    print(f"Looking for audio file at: {audio_path}")
-    print(f"Looking for image file at: {image_path}")
-    
-    # Check files with better error messages
-    files_missing = False
-    if not os.path.exists(audio_path):
-        print(f"\nError: Audio file not found at {audio_path}")
-        print("Please place a .wav file named 'harvard.wav' in the script directory")
-        files_missing = True
-    
-    if not os.path.exists(image_path):
-        print(f"\nError: Image file not found at {image_path}")
-        print("Please place the image file 'pexels-souvenirpixels-414612.jpg' in the script directory")
-        files_missing = True
-    
-    if files_missing:
-        exit(1)
-        
-    processed_audio_path = "C:/Users/gupta/OneDrive/Desktop/LLMS/RCG global/individual agents/audio/"
-
-    try:
-        speech_to_text_output, chatgpt_output, processed_audio_path = process_inputs(audio_path, image_path)
-        
-        print("\n=== Processing Results ===")
-        print("Speech to Text Output:", speech_to_text_output)
-        print("\nLLaVA Output:", chatgpt_output)
-        print("\nProcessed Audio saved to:", processed_audio_path)
-    except Exception as e:
-        print(f"\nError during processing: {str(e)}")
-        print("Stack trace:", exc_info=True)
-
 
 iface = gr.Interface(
     fn=process_inputs,
