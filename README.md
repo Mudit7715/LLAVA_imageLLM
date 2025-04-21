@@ -80,18 +80,3 @@ The application integrates three primary functions:
 *   **Bitsandbytes:** [https://pypi.org/project/bitsandbytes/](https://pypi.org/project/bitsandbytes/)
 *   **Accelerate:** [https://huggingface.co/docs/accelerate/en/index](https://huggingface.co/docs/accelerate/en/index)
 
-**Key improvements in this format:**
-
-*   **Clear Headings:** Uses headings and subheadings for easy navigation.
-*   **Concise Descriptions:**  Provides brief overviews of each component.
-*   **Pros & Cons:** Highlights the advantages and disadvantages of each choice.
-*   **Configuration Details:**  Includes important parameter settings.
-*   **Logical Flow:** Presents the information in a sequence that reflects the application's workflow.
-
-This revised format should be much easier to use as a reference during the development process.
-
-Citations:
-[1] https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/53975326/04f4f306-b780-4443-bb20-dea886f398df/Multimodal_RAG-4.ipynb
-
----
-Answer from Perplexity: pplx.ai/share
